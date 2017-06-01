@@ -20,9 +20,15 @@
 ** along with Q-UML.  If not, see <http://www.gnu.org/licenses/>.
 **
 *****************************************************************************/
-
 #include <QApplication>
-#include <application/application.h>
+
+#include <Application/Application.h>
+#include <GUI/MainWindow.h>
+#include <Models/ApplicationModel.h>
+
+#include "boost-di/include/boost/di.hpp"
+
+namespace di = boost::di;
 
 int main(int argc, char *argv[])
 {
@@ -30,6 +36,7 @@ int main(int argc, char *argv[])
     QApplication::setOrganizationName("QUml");
     QApplication::setApplicationName("QUml tools");
 
-    application::Application app;
+    auto injector = di::make_injector();
+    auto app = injector.create<App::Application>();
     return app.run() ? a.exec() : 0;
 }

@@ -1,7 +1,16 @@
 *.user
 *.user*
-build*
+build
 *.zip
 html
 Doxyfile*
 doc
+
+# CMake stuff
+CMakeCache.txt
+CMakeFiles
+CMakeScripts
+Makefile
+cmake_install.cmake
+install_manifest.txt
+build*

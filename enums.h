@@ -24,8 +24,9 @@
 #pragma once
 
 #include <QMetaType>
+#include <QHash>
 
-namespace entity {
+namespace Entity {
 
     /// The Section enum
     enum Section  : int {
@@ -75,9 +76,14 @@ namespace entity {
         SimpleMethod,   ///< SimpleMethod
         TemplateMethod  ///< TemplateMethod
     };
+
+    inline uint qHash(const Entity::LhsIdentificator& c)
+    {
+        return ::qHash(uint(c));
+    }
 }
 
-namespace relationship {
+namespace Relationship {
 
     /// The Multiplicity enum
     enum Multiplicity : int {
